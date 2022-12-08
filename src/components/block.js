@@ -30,7 +30,7 @@ const block = {
     </svg>
   `,
   content: `
-    <div class="container">
+    <div class="container" id="${process.env.MODULE_ID}">
       <div class="row">
         <div class="col">
           <div class="card nft-card" id="nft-container-1">
