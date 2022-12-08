@@ -7,7 +7,8 @@ async function script(props) {
 
     $(".nft-card").click((el) => {
       const nft = el.target.getAttribute("data-metadata");
-      document.dispatchEvent(new Event("onNFTSelect", JSON.parse(nft)));
+      document.dispatchEvent(new CustomEvent("onNFTSelect", { nft: JSON.parse(nft) }));
+      console.log(`Event dispatched with content ${nft}`);
     });
 
     const results = await fetch(
@@ -15,7 +16,7 @@ async function script(props) {
       {
         method: "GET", // *GET, POST, PUT, DELETE, etc.
         headers: {
-          "X-API-Key": process.env.REACT_APP_MORALIS_API_KEY,
+          "X-API-Key": process.env.MORALIS_API_KEY,
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
       }
