@@ -7,7 +7,7 @@ async function script(props) {
 
     $(".nft-card").click((el) => {
       const nft = el.target.getAttribute("data-metadata");
-      document.dispatchEvent(new CustomEvent("onNFTSelect", { nft: JSON.parse(nft) }));
+      document.dispatchEvent(new CustomEvent("onNFTSelect", { detail: JSON.parse(nft) }));
       console.log(`Event dispatched with content ${nft}`);
     });
 
